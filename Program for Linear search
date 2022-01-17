@@ -1,28 +1,30 @@
-#include <iostream>
-using namespace std;
+#include <stdio.h>
 
-int main() 
+int main()
 {
+  int array[100], search, c, n;
 
-int arr[10], i, num, index;
-   
-   cout<<"Enter 10 Numbers: ";
-    for(i=0; i<10; i++)
-        cin>>arr[i];
-    cout<<"\nEnter a Number to Search: ";
-    cin>>num;
-   
-   for(i=0; i<10; i++)
+  printf("Enter number of elements in array\n");
+  scanf("%d", &n);
+
+  printf("Enter %d integer(s)\n", n);
+
+  for (c = 0; c < n; c++)
+    scanf("%d", &array[c]);
+
+  printf("Enter a number to search\n");
+  scanf("%d", &search);
+
+  for (c = 0; c < n; c++)
+  {
+    if (array[c] == search)    /* If required element is found */
     {
-        if(arr[i]==num)
-        {
-            index = i;
-            break;
-        }
+      printf("%d is present at location %d.\n", search, c+1);
+      break;
     }
-   
-   cout<<"\nFound at Index No."<<index;
-   cout<<endl;
-   
-    return 0;
-    }
+  }
+  if (c == n)
+    printf("%d isn't present in the array.\n", search);
+
+  return 0;
+}
